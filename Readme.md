@@ -6,34 +6,34 @@ The **CarPooling System** is designed to make ride-sharing easy and efficient. U
 Whether you're a driver looking to fill empty seats or a passenger searching for a ride, this system connects people to help save time, money, and the environment.
 
 ---
-## Documentation
+## ✍ Documentation
 Here is the detailed documentation of the carpooling system
 
- [View API Documentation](https://example.com)
+[View API Documentation](https://docs.google.com/document/d/1AgXR6Tzj5yzekjiPyvJRCDdce5YGDsTo0Qvj-uFnf4A/edit?pli=1&tab=t.0)
 
-## Video Demonstration
+## 🎥 Video Demonstration
 Here is the link for the video demonstration of the working of the Carpooling system using postman.
 
-[Video Demonstration of working of API's](https://example.com)
+[Video Demonstration of working of API's](https://drive.google.com/drive/u/0/folders/16zzaOLPw2MAoyG6MDrmAc_cvbvHtzKgO)
 
 ---
 
 ## ✨ Features
 
 - 🔐 **User Registration and Authentication**  
-  Secure sign-up/login with session or token-based authentication.
+  Secure sign-up/login with token-based authentication.
 
 - 🚗 **Ride Offering**  
-  Drivers can post rides with details like date, time, route, available seats, etc.
+  Drivers can post rides with details like date, time, preferences, available seats, etc.
 
 - 🔍 **Ride Searching**  
-  Search for rides by source, destination, time, and preferences.
+  Search for rides by route matching percentage using latitude , longitude and preferences.
 
 - 📅 **Ride Requests**  
   As a Rider , Request for rides and driver will approve or reject the ride.
 
 - 🔔 **Real-Time Rides Availability**  
-  Get instant updates on ride bookings, confirmations, and changes.
+  Get instant updates on ride requests, confirmations, and changes.
 
 - 💬 **WebSocket-based Ride Matching**  
   Real-time ride suggestions and updates based on live criteria.
@@ -93,8 +93,10 @@ CarPooling_System/
 ## 🚀 Installation & Setup
 
 
-Node js 
-Mongodb 
+- Node js 
+
+- Mongodb 
+
 
 ### 🔧 Steps to Run
 
@@ -121,7 +123,7 @@ Mongodb
 ---
 ## ⚙️ Environment Variables
 
-Create a `.env` file in your project root and add the following variables:
+Create a `.env` file in your project in backend folder and add the following variables:
 
 ```env
 # Application Config
@@ -133,16 +135,6 @@ MONGODB_URL="mongodb://localhost:27017/database_name"
 # Authentication
 SECRET=Your_JWT_Secret_key
 ```
-
----
-
-## 💻 Usage Guide
-
-1. **Register or Log In** to access the dashboard.
-2. **Offer a Ride** by entering trip details.
-3. **Search for Rides** based on your pickup/drop location and time.
-4. **Book a Ride** and receive updates via notifications.
-5. **Manage Bookings** in your profile.
 
 ---
 
