@@ -6,6 +6,17 @@ The **CarPooling System** is designed to make ride-sharing easy and efficient. U
 Whether you're a driver looking to fill empty seats or a passenger searching for a ride, this system connects people to help save time, money, and the environment.
 
 ---
+## Documentation
+Here is the detailed documentation of the carpooling system
+[View API Documentation](https://example.com)
+
+
+
+---
+## Video Demonstration
+Here is the link for the video demonstration of the working of the Carpooling system using postman.
+[Video Demonstration of working of API's](https://example.com)
+---
 
 ## ✨ Features
 
@@ -38,7 +49,7 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 - **Winston** for structured logging
 
 ### Others
-- JWT for auth
+- **JWT** for auth
 - **Mongoose** for MongoDB object modeling
 
 ---
@@ -81,8 +92,9 @@ CarPooling_System/
 
 ## 🚀 Installation & Setup
 
--Node js 
--Mongodb 
+
+Node js 
+Mongodb 
 
 ### 🔧 Steps to Run
 
@@ -133,3 +145,12 @@ SECRET=Your_JWT_Secret_key
 5. **Manage Bookings** in your profile.
 
 ---
+
+## 📚 Resources
+
+- [Node.js ](https://nodejs.org/en/docs/)
+- [Express.js ](https://expressjs.com/)
+- [MongoDB ](https://www.mongodb.com/docs/)
+- [Mongoose ](https://mongoosejs.com/docs/)
+- [WebSocket ](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [Winston Logger](https://github.com/winstonjs/winston)
