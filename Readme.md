@@ -46,8 +46,6 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 
 ## 📁 Project Directory Structure
 ```
-bash
-Copy
 CarPooling_System/
 ├── backend
     ├── controllers/
@@ -80,7 +78,7 @@ CarPooling_System/
     ├── package.json 
     ├── websocket.js
     └── README.md   
-
+```
 
 ## 🚀 Installation & Setup
 
