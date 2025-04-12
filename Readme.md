@@ -44,7 +44,45 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 
 ---
 
-<pre> ### 📁 Project Directory Structure ``` CarPooling_System/ ├── backend/ │ ├── controllers/ │ │ ├── auth.controller.js │ │ ├── ride.controller.js │ │ └── vehicle.controller.js │ │ │ ├── logs/ │ │ ├── error.log │ │ └── server.log │ │ │ ├── middlewares/ │ │ ├── auth.middleware.js │ │ ├── ride.middleware.js │ │ └── vehicle.middleware.js │ │ │ ├── models/ │ │ ├── ride.model.js │ │ ├── user.model.js │ │ └── vehicle.model.js │ │ │ ├── routes/ │ │ ├── auth.route.js │ │ ├── ride.route.js │ │ └── vehicle.route.js │ │ │ ├── .env │ ├── .gitignore │ ├── index.js │ ├── package.json │ ├── websocket.js │ └── README.md ``` </pre>
+## 📁 Project Directory Structure
+```
+bash
+Copy
+CarPooling_System/
+├── backend
+    ├── controllers/
+    │   ├── auth.controller.js
+    │   ├── ride.controller.js        
+    │   └── vehicle.controller.js     
+    │
+    ├── logs/
+    │   ├── error.log 
+    │   └── server.log
+    |
+    ├── middlewares/
+    │   ├── auth.middleware.js 
+    │   ├── ride.middleware.js
+    │   └── vehicle.middleware.js
+    │
+    ├── models/
+    │   ├── ride.model.js         
+    │   ├── user.model.js              
+    │   └── vehicle.model.js          
+    │
+    ├── routes/
+    │   ├── auth.route.js     
+    │   ├── ride.route.js       
+    │   └── vehicle.route.js     
+    |
+    ├── .env                  
+    ├── .gitignore           
+    ├── index.js 
+    ├── package.json 
+    ├── websocket.js
+    └── README.md   
+
+
+## 🚀 Installation & Setup
 
 ### 📦 Prerequisites
 - Node.js
