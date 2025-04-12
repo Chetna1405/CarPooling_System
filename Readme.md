@@ -8,14 +8,14 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 ---
 ## Documentation
 Here is the detailed documentation of the carpooling system
-[View API Documentation](https://example.com)
 
+ [View API Documentation](https://example.com)
 
-
----
 ## Video Demonstration
 Here is the link for the video demonstration of the working of the Carpooling system using postman.
+
 [Video Demonstration of working of API's](https://example.com)
+
 ---
 
 ## ✨ Features
