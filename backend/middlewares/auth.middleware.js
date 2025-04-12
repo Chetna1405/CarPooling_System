@@ -1,8 +1,6 @@
-
 // Dependencies
 const jwt = require("jsonwebtoken");
 const logger = require("../logger");
-const validator = require("validator");
 
 // Database models
 const user_model = require("../models/user.model.js");
@@ -25,14 +23,15 @@ const verifySignUpBody = async (req, res, next) => {
                 error: "Username size should be 3 to 20 characters",
             });
         }
-        if (!req.body.password || !validator.isAlphanumeric(req.body.password) || req.body.password.length < 8 || req.body.password.length > 16) {
+        if (!req.body.password || req.body.password.length < 8 || req.body.password.length > 16) {
             return res.status(401).send({
                 error: "Password size should be 8 to 16 characters",
             });
         }
-        
-        if (!validator.isEmail(req.body.contact.email)) {
-            return res.status(400).send({ error: "Invalid Email" });
+        if (!req.body.contact.email || !/^\S+@\S+\.\S+$/.test(req.body.contact.email)) {
+            return res.status(401).send({
+                error: "Invalid Email",
+            });
         }
         if (!req.body.contact.phone || !/^\d{10}$/.test(req.body.contact.phone)) {
             return res.status(401).send({
@@ -64,8 +63,10 @@ const verifySignUpBody = async (req, res, next) => {
                 error: "State size should be 2 to 50 characters",
             });
         }
-        if (!validator.isPostalCode(req.body.address.postalCode, 'any')) {
-            return res.status(400).send({ error: "Invalid Postal Code" });
+        if (!req.body.address.postalCode || !/^\d{6}$/.test(req.body.address.postalCode)) {
+            return res.status(401).send({
+                error: "Invalid Postal Code",
+            });
         }
 
         const user = await user_model.findOne({
@@ -137,53 +138,33 @@ const verifyChangePasswordBody = async (req, res, next) => {
 };
 
 // Token verification
-const validateToken = async (req, res, next) => {
-    const token = req.cookies?.token;
-
-    if (!token) {
-        return res.status(401).send({ error: "You are not logged in!" });
-    }
-
-    jwt.verify(token, process.env.SECRET, async (err, decoded) => {
-        if (err) {
-            return res.status(401).send({ error: "Unauthorized, Invalid Token" });
-        }
-
-        try {
-            const user = await user_model.findById(decoded.id);
-            if (!user) {
+const validateToken = (req, res, next) => {
+    if (req.cookies?.token) {
+        const token = req.cookies.token;
+        jwt.verify(token, process.env.secret, async (err, decoded) => {
+            if (err) {
                 return res.status(401).send({
-                    error: "Unauthorized, the user for this token does not exist",
+                    error: "Unauthorized, Invalid Token",
                 });
             }
-
-            req.user = user;
-            next();
-        } catch (error) {
-            logger.error("AUTH | Error while searching for user in database: ", error);
-            return res.status(500).send({
-                error: "Token validation failed",
-            });
-        }
-    });
-};
-
-// Admin verification
-const isAdmin = (req, res, next) => {
-    try {
-        const user = req.user;
-        if (user && user.role === "ADMIN") {
-            next();
-        } else {
-            return res.status(403).send({
-                error: "Only ADMIN user are allowed to access this endpoint",
-            });
-        }
-    } catch (err) {
-        logger.error("AUTH | Error while validating ADMIN: ", err);
-        return res.status(401).send({
-            error: "Failed to validate ADMIN status",
+            try {
+                const user = await user_model.findById(decoded.id);
+                if (!user) {
+                    return res.status(401).send({
+                        error: "Unauthorized, the user for this token does not exist",
+                    });
+                }
+                req.user = user;
+                next();
+            } catch (error) {
+                logger.error("AUTH | Error while searching for user in database: ", error);
+                return res.status(501).send({
+                    error: "Token validation failed",
+                });
+            }
         });
+    } else {
+        return res.status(401).send({ error: "You are not logged in !" });
     }
 };
 
@@ -230,7 +211,6 @@ module.exports = {
     verifySignInBody: verifySignInBody,
     verifyChangePasswordBody: verifyChangePasswordBody,
     validateToken: validateToken,
-    isAdmin: isAdmin,
     isDriver: isDriver,
     isRider: isRider,
 };

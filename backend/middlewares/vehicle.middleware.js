@@ -1,4 +1,3 @@
-// Dependencies
 const logger = require("../logger");
 const vehicle_model = require("../models/vehicle.model");
 

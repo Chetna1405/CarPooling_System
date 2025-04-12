@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 require("dotenv").config();
 
 // MongoDB connection
-mongoose.connect(process.env.DB_URL);
+mongoose.connect(process.env.MONGODB_URL);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -36,9 +36,9 @@ db.once("open", () => {
     console.log("Connected to MongoDB");
 });
 
-auth_routes(app);
-vehicle_routes(app);
-ride_routes(app);
+app.use("/user", auth_routes);
+app.use("/vehicle", vehicle_routes);
+app.use("/ride", ride_routes);
 
 const PORT = process.env.PORT || 8080;
 const server = http.createServer(app);

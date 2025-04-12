@@ -16,11 +16,11 @@ const logger = createLogger({
     transports: [
         new transports.Console({ format: combine(colorize(), logFormat) }), // Console output
 
-        // General log file (Single file, overwriting when full)
+        
         new transports.File({
-            filename: "logs/server.log",  // Single log file (No date-based rotation)
-            maxsize: 10 * 1024 * 1024, // 10MB max size (old logs removed when exceeded)
-            maxFiles: 1 // Keep only one file (overwrite old logs)
+            filename: "logs/server.log",  
+            maxsize: 10 * 1024 * 1024, 
+            maxFiles: 1 
         }),
 
         // Separate file for error logs (same settings)

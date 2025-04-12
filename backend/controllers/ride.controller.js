@@ -9,8 +9,8 @@ const user_model = require("../models/user.model");
 const ride_model = require("../models/ride.model");
 
 const registerRide = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
+    // const session = await mongoose.startSession();
+    // session.startTransaction();
 
     const vehicle = await vehicle_model.findById(req.user.vehicle);
     try {
@@ -33,25 +33,25 @@ const registerRide = async (req, res) => {
             status: "ACTIVE",
         };
 
-        const ride_created = await ride_model.create([rideObj], { session });
-
-        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "RIDING" }, { session });
+        const ride_created = await ride_model.create([rideObj]);
+        console.log("ride_created");
+        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "RIDING" });
 
         if (!userUpdate) {
             throw new Error("Failed to update user's ride status");
         }
 
         broadcastRideUpdate(ride_created[0]);
-        await session.commitTransaction();
-        session.endSession();
+        // await session.commitTransaction();
+        // session.endSession();
 
 
         res.status(201).send({
             message: `Ride created successfully!`,
         });
     } catch (error) {
-        await session.abortTransaction();
-        session.endSession();
+        // await session.abortTransaction();
+        // session.endSession();
 
         logger.error("Error while creating ride: ", error);
         res.status(500).send({ error: "Ride Creation Failed" });

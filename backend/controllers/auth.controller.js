@@ -1,13 +1,10 @@
-// Dependencies
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-// Database model modules
 const user_model = require("../models/user.model");
 const logger = require("../logger");
 
-// User signup controller
 const signup = async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(12);
