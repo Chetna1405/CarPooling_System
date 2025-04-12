@@ -26,6 +26,7 @@ const registerVehicle = async (req, res) => {
         }
         res.status(201).send({
             message: `Vehicle ${vehicle_created[0].vehicle_number} registered successfully!`,
+            vehicle_id: vehicle_created[0]._id
         });
     } catch (error) {
         logger.error("Error while registering vehicle: ", error);
@@ -36,7 +37,7 @@ const registerVehicle = async (req, res) => {
 const updateVehicle = async (req, res) => {
     try {
         const vehicle = await model.findById(req.params.id);
-
+        // console.log(vehicle);
         if (!vehicle) {
             return res.status(404).send({ error: "Vehicle not found" });
         }

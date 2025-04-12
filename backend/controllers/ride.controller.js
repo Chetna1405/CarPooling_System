@@ -45,10 +45,11 @@ const registerRide = async (req, res) => {
         // await session.commitTransaction();
         // session.endSession();
 
-
         res.status(201).send({
             message: `Ride created successfully!`,
+            ride_id: ride_created[0]._id,
         });
+        
     } catch (error) {
         // await session.abortTransaction();
         // session.endSession();
@@ -59,11 +60,9 @@ const registerRide = async (req, res) => {
 };
 
 const startRide = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
 
     try {
-        const ride = await ride_model.findById(req.params.ride_id).session(session);
+        const ride = await ride_model.findById(req.params.ride_id);
 
         if (!ride) {
             return res.status(404).send({ error: "Ride not found" });
@@ -82,26 +81,17 @@ const startRide = async (req, res) => {
         await ride.save();
 
         removeRideAndBroadcast(ride._id);
-        await session.commitTransaction();
-        session.endSession();
-
 
         res.status(200).send({ message: "Ride started successfully!" });
     } catch (error) {
-        await session.abortTransaction();
-        session.endSession();
-
         logger.error("Error while starting ride: ", error);
         res.status(500).send({ error: "Failed to start ride" });
     }
 };
 
 const finishRide = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
-
     try {
-        const ride = await ride_model.findById(req.params.ride_id).session(session);
+        const ride = await ride_model.findById(req.params.ride_id);
 
         if (!ride) {
             return res.status(404).send({ error: "Ride not found" });
@@ -118,31 +108,22 @@ const finishRide = async (req, res) => {
         ride.status = "RIDE_FINISHED";
         await ride.save();
 
-        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "OFFLINE" }, { session });
+        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "OFFLINE" });
 
         if (!userUpdate) {
             throw new Error("Failed to update user's ride status");
         }
 
-        await session.commitTransaction();
-        session.endSession();
-
         res.status(200).send({ message: "Ride finished successfully!" });
     } catch (error) {
-        await session.abortTransaction();
-        session.endSession();
-
         logger.error("Error while finishing ride: ", error);
         res.status(500).send({ error: "Failed to finish ride" });
     }
 };
 
 const cancelRide = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
-
     try {
-        const ride = await ride_model.findById(req.params.ride_id).session(session);
+        const ride = await ride_model.findById(req.params.ride_id);
 
         if (!ride) {
             return res.status(404).send({ error: "Ride not found" });
@@ -159,33 +140,25 @@ const cancelRide = async (req, res) => {
         ride.status = "CANCELLED";
         await ride.save();
 
-        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "OFFLINE" }, { session });
+        const userUpdate = await user_model.findByIdAndUpdate(req.user._id, { ride_status: "OFFLINE" });
 
         if (!userUpdate) {
             throw new Error("Failed to update user's ride status");
         }
 
         removeRideAndBroadcast(ride._id);
-        await session.commitTransaction();
-        session.endSession();
-
 
         res.status(200).send({ message: "Ride cancelled successfully!" });
     } catch (error) {
-        await session.abortTransaction();
-        session.endSession();
-
         logger.error("Error while cancelling ride: ", error);
         res.status(500).send({ error: "Failed to cancel ride" });
     }
 };
 
 const requestRide = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
 
     try {
-        const ride = await ride_model.findById(req.params.ride_id).session(session);
+        const ride = await ride_model.findById(req.params.ride_id);
 
         if (!ride) {
             return res.status(404).send({ error: "Ride not found" });
@@ -219,10 +192,6 @@ const requestRide = async (req, res) => {
         await ride.save();
 
         updateRideAndBroadcast(ride);
-        await session.commitTransaction();
-        session.endSession();
-
-
         res.status(200).send({ message: "Ride requested successfully!" });
     } catch (error) {
         await session.abortTransaction();
@@ -234,11 +203,8 @@ const requestRide = async (req, res) => {
 };
 
 const acceptRideRequest = async (req, res) => {
-    const session = await mongoose.startSession();
-    session.startTransaction();
-
     try {
-        const ride = await ride_model.findById(req.params.ride_id).session(session);
+        const ride = await ride_model.findById(req.params.ride_id);
 
         if (!ride) {
             return res.status(404).send({ error: "Ride not found" });
@@ -267,14 +233,9 @@ const acceptRideRequest = async (req, res) => {
         await ride.save();
 
         updateRideAndBroadcast(ride);
-        await session.commitTransaction();
-        session.endSession();
-
 
         res.status(200).send({ message: "Ride request accepted successfully!" });
     } catch (error) {
-        await session.abortTransaction();
-        session.endSession();
 
         logger.error("Error while accepting ride request: ", error);
         res.status(500).send({ error: "Failed to accept ride request" });

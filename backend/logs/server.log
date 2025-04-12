@@ -1,0 +1,9 @@
+2025-04-12 17:01:22 [ERROR]: AUTH | SignIn Request body validation failed:  Cannot read properties of undefined (reading 'username')
+2025-04-12 17:30:17 [ERROR]: Error while updating vehicle:  Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Vehicle"
+2025-04-12 17:43:32 [ERROR]: Error while cancelling ride:  Cast to ObjectId failed for value "67b128a134bd13982307la99" (type string) at path "_id" for model "Ride"
+2025-04-12 17:47:06 [ERROR]: Error while fetching ride details:  Cast to ObjectId failed for value "67b128a134bd13982307la99" (type string) at path "_id" for model "Ride"
+2025-04-12 17:59:14 [ERROR]: Error while requesting ride:  Transaction numbers are only allowed on a replica set member or mongos
+2025-04-12 18:01:10 [ERROR]: Error while fetching ride details:  Cast to ObjectId failed for value "67b128a134bd13982307la99" (type string) at path "_id" for model "Ride"
+2025-04-12 18:18:36 [ERROR]: Error while accepting ride request:  Transaction numbers are only allowed on a replica set member or mongos
+2025-04-12 18:19:35 [ERROR]: Error while starting ride:  Transaction numbers are only allowed on a replica set member or mongos
+2025-04-12 18:19:50 [ERROR]: Error while starting ride:  Transaction numbers are only allowed on a replica set member or mongos

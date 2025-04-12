@@ -12,7 +12,7 @@ async function loadActiveRides() {
         activeRides = await Ride.find({ status: "ACTIVE" }).lean();
         console.log("Loaded active rides from DB:", activeRides.length);
     } catch (error) {
-        console.error("Error loading active rides: ", error);
+        console.error("Error loading active rides:", error);
     }
 }
 

@@ -38,8 +38,7 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 - **Winston** for structured logging
 
 ### Others
-- JWT or OAuth for auth
-- [Optional] **Docker** for containerization
+- JWT for auth
 - **Mongoose** for MongoDB object modeling
 
 ---
@@ -82,9 +81,8 @@ CarPooling_System/
 
 ## 🚀 Installation & Setup
 
-### 📦 Prerequisites
-- Node.js
-- MongoDB
+-Node js 
+-Mongodb 
 
 ### 🔧 Steps to Run
 
@@ -95,7 +93,7 @@ CarPooling_System/
 
 2. **Navigate into the directory**  
     ```bash
-    cd CarPooling_System
+    cd backend
     ```
 
 3. **Install backend dependencies**  
@@ -108,7 +106,21 @@ CarPooling_System/
     npm start
     ```
 
-> 💡 You can add a `.env` file for environment variables (e.g., MONGODB_URI, JWT_SECRET).
+---
+## ⚙️ Environment Variables
+
+Create a `.env` file in your project root and add the following variables:
+
+```env
+# Application Config
+PORT=8080
+
+# Database
+MONGODB_URL="mongodb://localhost:27017/database_name"
+
+# Authentication
+SECRET=Your_JWT_Secret_key
+```
 
 ---
 
@@ -121,9 +133,3 @@ CarPooling_System/
 5. **Manage Bookings** in your profile.
 
 ---
-
-## 🧪 Future Improvements
-
-- Payment Integration (e.g., Razorpay, Stripe)
-- Route Optimization using Google Maps API
-- Admin Dashboard for system moderation
