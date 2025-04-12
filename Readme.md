@@ -1,4 +1,4 @@
-# 🚘 CarPooling System Backend
+# 🚘 MoveInSync - CarPooling System Solution
 
 ## 📖 Overview
 The **CarPooling System** is designed to make ride-sharing easy and efficient. Users can offer rides, search for available ones based on location and time, and manage their carpooling activities—all from a single platform.
