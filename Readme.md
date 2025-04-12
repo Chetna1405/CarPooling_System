@@ -1,7 +1,7 @@
 # 🚘 CarPooling System Backend
 
 ## 📖 Overview
-The **CarPooling System** is designed to make ride-sharing easy and efficient. Users can offer rides, search for available ones based on location and time, and manage their carpooling activities—all from a single, user-friendly platform.
+The **CarPooling System** is designed to make ride-sharing easy and efficient. Users can offer rides, search for available ones based on location and time, and manage their carpooling activities—all from a single platform.
 
 Whether you're a driver looking to fill empty seats or a passenger searching for a ride, this system connects people to help save time, money, and the environment.
 
@@ -45,41 +45,7 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 ---
 
 ## 📁 Project Directory Structure
-bash
-Copy
-CarPooling_System/
-├── backend
-    ├── controllers/
-    │   ├── auth.controller.js
-    │   ├── ride.controller.js        
-    │   └── vehicle.controller.js     
-    │
-    ├── logs/
-    │   ├── error.log 
-    │   └── server.log
-    |
-    ├── middlewares/
-    │   ├── auth.middleware.js 
-    │   ├── ride.middleware.js
-    │   └── vehicle.middleware.js
-    │
-    ├── models/
-    │   ├── ride.model.js         
-    │   ├── user.model.js              
-    │   └── vehicle.model.js          
-    │
-    ├── routes/
-    │   ├── auth.route.js     
-    │   ├── ride.route.js       
-    │   └── vehicle.route.js     
-    |
-    ├── .env                  
-    ├── .gitignore           
-    ├── index.js 
-    ├── package.json 
-    ├── websocket.js
-    └── README.md   
-
+<pre> CarPooling_System/ ├── backend/ │ ├── controllers/ │ │ ├── auth.controller.js │ │ ├── ride.controller.js │ │ └── vehicle.controller.js │ │ │ ├── logs/ │ │ ├── error.log │ │ └── server.log │ │ │ ├── middlewares/ │ │ ├── auth.middleware.js │ │ ├── ride.middleware.js │ │ └── vehicle.middleware.js │ │ │ ├── models/ │ │ ├── ride.model.js │ │ ├── user.model.js │ │ └── vehicle.model.js │ │ │ ├── routes/ │ │ ├── auth.route.js │ │ ├── ride.route.js │ │ └── vehicle.route.js │ │ │ ├── .env │ ├── .gitignore │ ├── index.js │ ├── package.json │ ├── websocket.js │ └── README.md </pre>
 ## 🚀 Installation & Setup
 
 ### 📦 Prerequisites
