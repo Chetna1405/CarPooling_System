@@ -52,7 +52,7 @@ async function initializeWebSocket(server) {
                             return;
                         }
 
-                        ws.send(JSON.stringify({ type: "sos_acknowledged", message: "SOS request sent successfully" }));
+                        ws.send(JSON.stringify({ type: "sos_acknowledged", message: "SOS request sent successfully", current_location: data.current_location }));
                     });
                 }
             } catch (error) {
