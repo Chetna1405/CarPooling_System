@@ -7,14 +7,14 @@ Whether you're a driver looking to fill empty seats or a passenger searching for
 
 ---
 ## ✍ Documentation
-Here is the detailed documentation of the carpooling system
+Here is the detailed documentation of the carpooling system along with the working of API's and the MongoDB structure models .
 
-[View API Documentation](https://docs.google.com/document/d/1AgXR6Tzj5yzekjiPyvJRCDdce5YGDsTo0Qvj-uFnf4A/edit?pli=1&tab=t.0)
+[View Documentation With API Workings](https://docs.google.com/document/d/1AgXR6Tzj5yzekjiPyvJRCDdce5YGDsTo0Qvj-uFnf4A/edit?pli=1&tab=t.0)
 
 ## 🎥 Video Demonstration
-Here is the link for the video demonstration of the working of the Carpooling system using postman.
+Here is the link for the video demonstration of the working of the Carpooling system using postman API.
 
-[Video Demonstration of working of API's](https://drive.google.com/drive/u/0/folders/16zzaOLPw2MAoyG6MDrmAc_cvbvHtzKgO)
+[Video Demonstration of working of System](https://drive.google.com/drive/u/0/folders/16zzaOLPw2MAoyG6MDrmAc_cvbvHtzKgO)
 
 ---
 

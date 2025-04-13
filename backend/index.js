@@ -1,20 +1,11 @@
 // Dependencies
 const http = require("http");
-const cors = require("cors");
-const WebSocket = require("ws");
 const express = require("express");
-const logger = require("./logger");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const app = express();
-const corsOptions = {
-    origin: "http://localhost:5173", // Match your frontend port
-    credentials: true, // Allow cookies
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-};
-app.use(cors(corsOptions));
+
 app.use(express.json());
 // Route handlers
 const auth_routes = require("./routes/auth.route");
