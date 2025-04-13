@@ -33,7 +33,7 @@ Here is the link for the video demonstration of the working of the Carpooling sy
   As a Rider , Request for rides and driver will approve or reject the ride.
 
 - 🔔 **Real-Time Rides Availability**  
-  Get instant updates on ride requests, confirmations, and changes.
+  Get instant updates on ride status, requests and availability.
 
 - 💬 **WebSocket-based Ride Matching**  
   Real-time ride suggestions and updates based on live criteria.
